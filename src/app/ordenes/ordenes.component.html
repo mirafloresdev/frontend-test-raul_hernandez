@@ -1,0 +1,35 @@
+
+<button nz-button nzType="primary" nzSize="large"
+        style=" font-weight: bolder; color: black; border-radius: 10px; margin-top: 160px; background-color: lightcoral; color: black">+ Nueva orden
+</button>
+
+<nz-table style="margin-top: 16px" #dataTableOrdenes [nzData]="displayOrdenes" [nzFrontPagination]="false">
+  <thead >
+  <tr>
+    <th style="background-color: #f4bcbc" nzWidth="20%">Orden ID</th>
+    <th style="background-color: #f4bcbc" nzWidth="50%">Descripción</th>
+    <th style="background-color: #f4bcbc" nzWidth="15%">Total</th>
+    <th style="background-color: #f4bcbc" nzWidth="15%">Estado</th>
+    <th style="background-color: #f4bcbc">...</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let orden of displayOrdenes">
+    <td>{{ orden.id }}</td>
+    <td>{{ orden.fecha_orden | date: 'dd/mm/yyyy h:mm' }}</td>
+    <td>{{ orden.total_orden | currency }}</td>
+    <td>{{ orden.estado }}</td>
+    <td>
+      <button (click)="obtenerDetalle(orden.id)" nz-button nzType="primary" nzSize="large"
+              style=" font-weight: bolder; color: black; border-radius: 10px; background-color: #eaed94; color: black">Detalle
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+<nz-pagination [nzPageIndex]="pageIndex"
+               [nzPageSize]="pageSize"
+               [nzTotal]="total"
+               (nzPageIndexChange)="onPageChange($event)">
+</nz-pagination>
+

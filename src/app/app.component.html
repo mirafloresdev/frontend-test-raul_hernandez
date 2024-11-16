@@ -1,0 +1,22 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo">
+      <a href="https://cdnlogo.com/logo/angular_39570.html"><img width="50" height="50" src="https://static.cdnlogo.com/logos/a/51/angular.svg"></a>
+
+    </div>
+    <ul style="margin-top: 10px; margin-left: 10px" nz-menu nzTheme="dark" nzMode="horizontal">
+      <li routerLink="/productos" style="color: black; font-weight: bolder; border: 1px solid grey; border-radius: 10px" nz-menu-item>
+        Productos
+      </li>
+      <li routerLink="/ordenes" style="color: black; font-weight: bolder; border: 1px solid grey; border-radius: 10px; margin-left: 10px" nz-menu-item>
+        Ordenes
+      </li>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
+  <nz-footer>Prueba de seleccion SISA - Daniel Hernandez</nz-footer>
+</nz-layout>

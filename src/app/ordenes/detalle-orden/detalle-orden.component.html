@@ -1,0 +1,22 @@
+<div>
+  <ul>
+    <li><strong>ID de Orden:</strong> {{ orden.id }}</li>
+    <li><strong>Fecha de Orden:</strong> {{ orden.fecha_orden | date:'fullDate' }}</li>
+    <li><strong>Total de la Orden:</strong> {{ orden.total_orden | currency }}</li>
+    <li><strong>Estado:</strong> {{ orden.estado }}</li>
+  </ul>
+
+  <hr>
+  <h2 style="font-weight: bolder">Productos en la Orden</h2>
+  <hr>
+  <div *ngFor="let detalle of detalles">
+    <h3>{{ detalle.producto.nombre }}</h3>
+    <ul>
+      <li><strong>Descripción:</strong> {{ detalle.producto.descripcion }}</li>
+      <li><strong>Precio Unitario:</strong> {{ detalle.precio_unitario | currency }}</li>
+      <li><strong>Cantidad:</strong> {{ detalle.cantidad }}</li>
+      <li><strong>Subtotal:</strong> {{ detalle.sub_total | currency }}</li>
+      <li><strong>Stock Disponible:</strong> {{ detalle.producto.stock }}</li>
+    </ul>
+  </div>
+</div>
